@@ -254,9 +254,9 @@ function updateUser(id, profile){
   if (authorized.admin(this.userId) || user._id === this.userId){
     var validFields = [
       'name',
-      'email',
-      'phone',
-      'company'
+      // 'email',
+      // 'phone',
+      // 'company'
     ];
 
     // Copy the user profile
@@ -269,9 +269,9 @@ function updateUser(id, profile){
       }
     });
 
-    if(_.isArray(profile['skills'])){
-      userProfile['skills'] = profile['skills'];
-    }
+    // if(_.isArray(profile['skills'])){
+    //   userProfile['skills'] = profile['skills'];
+    // }
 
     Meteor.users.update({
       _id: id
