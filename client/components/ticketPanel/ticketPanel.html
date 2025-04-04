@@ -60,11 +60,12 @@
               <div class="content">
                 {{constant 'TICKET_PANEL_TOPIC'}}
                 <br>
-                <input id="topic"
-                      type="text"
-                      name="topic"
-                      class="clean"
-                      placeholder="{{constant 'TICKET_PANEL_TOPIC_PLACEHOLDER'}}">
+                <select id="topic" name="topic" class="clean">
+                  <option value="Marking">Marking</option>
+                  <option value="Prac_Help">Prac help</option>
+                  <option value="Project_Help">Project help</option>
+                  <option value="Device_Loan">Device Loan</option>
+                </select>
                 <br>
                 {{constant 'TICKET_PANEL_LOCATION'}}
                 <br>
