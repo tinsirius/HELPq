@@ -16,6 +16,7 @@ Meteor.methods({
   deleteAnnouncement: deleteAnnouncement,
 
   toggleRole: toggleRole,
+  toggleBanned: toggleBanned,
   updateUser: updateUser,
   createAccount: createAccount,
 
@@ -224,6 +225,21 @@ function deleteAnnouncement(id){
     return true;
   }
   return false;
+}
+
+function toggleBanned(id){
+  if (authorized.admin(this.userId)){
+    var user = _getUser(id);
+    var setBanned = {};
+    setBanned['profile.' + "banned"] = !user.profile["banned"];
+
+    Meteor.users.update({
+      _id: id
+    },{
+      $set: setBanned
+    });
+    return true;
+  }
 }
 
 function toggleRole(role, id){

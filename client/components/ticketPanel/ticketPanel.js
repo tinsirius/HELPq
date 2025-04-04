@@ -12,6 +12,18 @@ Template.ticketPanel.helpers({
       }
     })
   },
+  notBanned: function(){
+    if (Meteor.user().profile.banned) {
+      var ticket = Tickets.findOne({
+        userId: Meteor.userId(),
+        status: 'OPEN'
+      });  
+      if (ticket) {
+        Meteor.call("cancelTicket", ticket._id);
+      }
+    }
+    return !Meteor.user().profile.banned;
+  },
   statusIs: function(status){
     return this.status === status;
   },

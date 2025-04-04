@@ -53,6 +53,9 @@ Template.userTable.events({
   'click .toggle-mentor': function(){
     Meteor.call("toggleRole", "mentor", this._id);
   },
+  'click .toggle-banned': function(){
+    Meteor.call("toggleBanned", this._id);
+  },
   'click .toggle-admin': function(){
     if (this._id === Meteor.userId()){
       if (confirm('Are you sure you would like to remove your admin privileges?')){

@@ -24,6 +24,10 @@
               <div class="ui blue empty circular label"></div>
               Mentor
             </div>
+            <div class="filter item" data-filter="banned">
+              <div class="ui red empty circular label"></div>
+              Banned
+            </div>
             <div class="filter item" data-filter="admin">
               <div class="ui yellow empty circular label"></div>
               Admin
@@ -41,10 +45,10 @@
     <thead>
     <tr>
       <th>Username</th>
-      <!-- <th>Name</th>
-      <th>Email</th>
-      <th>Phone</th> -->
-      <th>Skills</th>
+      <th>Name</th>
+      <!-- <th>Email</th>
+      <th>Phone</th>
+      <th>Skills</th> -->
       <th></th>
     </tr>
     </thead>
@@ -91,6 +95,16 @@
           {{else}}
             <span class="ui tiny basic button toggle-mentor">
             Mentor
+          </span>
+          {{/if}}
+
+          {{#if profile.banned}}
+            <span class="ui tiny blue button toggle-banned">
+            Banned
+          </span>
+          {{else}}
+            <span class="ui tiny basic button toggle-banned">
+            Banned
           </span>
           {{/if}}
 

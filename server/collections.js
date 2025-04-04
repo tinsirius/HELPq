@@ -56,6 +56,7 @@ Settings = new Meteor.Collection('settings');
  *      company: STRING
  *      mentor: BOOLEAN
  *      admin: BOOLEAN
+ *      banned: BOOLEAN
  *      skills: [STRING]
  *    }
  * }
