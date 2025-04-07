@@ -1,0 +1,28 @@
+#!/bin/bash
+
+if [ -e private/config.json ]; then
+    
+    while true; do
+        read -p "Warning: config.json already exists, are you sure you want to ovewrite it? (y/n) " yn
+
+        case $yn in
+            [Yy]* ) echo "overwriting..."; break;;
+            [Nn]* ) exit;;
+            *) echo "Invalid response (y/n)"
+        esac
+    done
+fi
+
+cp private/config.json.template private/config.json
+echo "Server side config created."
+
+if [ -n "$ADMIN_USERNAME" ] && [ -n "$ADMIN_PASSWORD" ]; then
+    echo "Using provided admin credentials..."
+    jq --arg user "$ADMIN_USERNAME" --arg pass "$ADMIN_PASSWORD" \
+       '.admin.username = $user | .admin.password = $pass' \
+       private/config.json > private/config.tmp && mv private/config.tmp private/config.json
+else
+    echo "using default admin username and password"
+fi
+
+echo "Edit it in private/config.json to add Facebook or GitHub integration."
