@@ -9,7 +9,7 @@ Template.mentorStatus.helpers({
     return mentorsOnline().length;
   },
   mentorsText: function(){
-    return mentorsOnline().length == 1 ? "mentor" : "mentors";
+    return mentorsOnline().length == 1 ? "TA" : "TAs";
   },
   estimatedWait: function(){
     return formatTime(estimatedWait());

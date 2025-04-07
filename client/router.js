@@ -21,7 +21,7 @@ Router.route('/mentor', function(){
   if (authorized.mentor()){
     this.render('mentor');
   } else {
-    this.render('error', { data: { msg: "You're not a mentor!" }});
+    this.render('error', { data: { msg: "You're not a TA!" }});
   }
 });
 
