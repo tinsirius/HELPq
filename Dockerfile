@@ -12,7 +12,7 @@ RUN mkdir -p $NVM_DIR && \
 
 RUN curl -o- 'https://install.meteor.com/?release=2.7.2' | sh
 
-COPY . /src
+COPY src /src
 
 WORKDIR /src
 
